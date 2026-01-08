@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>اختبار MCQ - رضوان عبدالهادي</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="title">اختبار MCQ</div>
+      <div class="subtitle">رضوان عبدالهادي</div>
+    </div>
+    <div class="pill" id="statusPill">جاهز</div>
+  </header>
+
+  <main class="container">
+
+    <!-- Setup -->
+    <section class="card" id="setupView">
+      <h1 class="h1">ابدأ اختبارك</h1>
+
+      <div class="grid">
+        <label class="field">
+          <span class="label">اختر المحاضرة</span>
+          <select id="lectureSelect"></select>
+        </label>
+
+        <label class="field">
+          <span class="label">عدد الأسئلة</span>
+          <select id="countSelect">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="all">الكل</option>
+          </select>
+        </label>
+
+        <label class="field inline">
+          <input type="checkbox" id="shuffleToggle" checked />
+          <span class="label">ترتيب عشوائي</span>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="startBtn">بدء الاختبار</button>
+      </div>
+
+      <p class="muted" id="metaInfo"></p>
+    </section>
+
+    <!-- Quiz -->
+    <section class="card hidden" id="quizView">
+      <div class="topRow">
+        <div class="progress" id="progressText">1 / 10</div>
+        <button class="btn" id="finishBtn">إنهاء</button>
+      </div>
+
+      <h2 class="question" id="questionText"></h2>
+
+      <div class="choices" id="choicesBox"></div>
+
+      <div class="nav">
+        <button class="btn" id="prevBtn">السابق</button>
+        <button class="btn primary" id="nextBtn">التالي</button>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="card hidden" id="resultView">
+      <h1 class="h1">النتيجة</h1>
+
+      <div class="scoreBox">
+        <div class="scoreItem">
+          <div class="scoreLabel">صحيح</div>
+          <div class="scoreValue" id="correctCount">0</div>
+        </div>
+        <div class="scoreItem">
+          <div class="scoreLabel">خطأ</div>
+          <div class="scoreValue" id="wrongCount">0</div>
+        </div>
+        <div class="scoreItem">
+          <div class="scoreLabel">النسبة</div>
+          <div class="scoreValue" id="percentText">0%</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="reviewBtn">عرض الأخطاء</button>
+        <button class="btn primary" id="restartBtn">اختبار جديد</button>
+      </div>
+    </section>
+
+    <!-- Review -->
+    <section class="card hidden" id="reviewView">
+      <div class="topRow">
+        <h1 class="h1">الأخطاء</h1>
+        <button class="btn" id="backToResultBtn">رجوع</button>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="retryWrongBtn">إعادة اختبار الأخطاء فقط</button>
+      </div>
+
+      <div id="wrongList" class="wrongList"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> رضوان عبدالهادي</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
